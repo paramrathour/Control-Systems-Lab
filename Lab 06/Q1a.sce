@@ -1,0 +1,11 @@
+s = %s;
+tMax = 5;
+tStep = 0.01;
+t = 0:tStep:tMax;
+K = (1/0.489 - 1)/(1/(3*4*12));
+TF = K/((s+3)*(s+4)*(s+12));
+G = TF / (1 + TF);
+sys = syslin('c', G);
+gp = csim('step', t, sys);
+plot(t,gp); xlabel(" t"); ylabel(" Step Response");
+xs2pdf(0,'Q1a');

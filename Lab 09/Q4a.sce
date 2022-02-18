@@ -1,0 +1,16 @@
+s = %s;
+G = 1/(s^3+3*s^2+2*s);
+G = syslin('c', G);
+evans(G);
+x = 5;
+plot([0 0], [x -x], 'm');
+xs2pdf(0, 'Q4a');
+fMin = 1e-1;
+fMax = 1e2;
+nyquist(G, (fMin,fMax));
+xs2pdf(0, 'Q4b');
+bode(G);
+bode_asymp(G); 
+xs2pdf(0, 'Q4c');
+show_margins(G);
+xs2pdf(0, 'Q4d');
